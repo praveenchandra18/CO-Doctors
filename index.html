@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors Availability</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"></script>
+
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="logo.jpeg"  class="logo">
+            <span class="brand-name">CO-DOCTOR</span>
+        </div>
+        <ul class="navbar-center">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="navbar-right">
+            <a href="login2.html" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <!-- Doctor Credentials -->
+    <div id="doctor-credentials" style="text-align:center; font-weight:bold; margin-top:20px;"></div>
+
+    <!-- Main Section -->
+    <section class="main-section">
+        <label for="department">Department:</label>
+        <select id="department"  onchange="updateSubdepartments()">
+          <option value="">-- Select Department --</option>
+          <option value="Respiratory Medicine">Respiratory Medicine</option>
+          <option value="Pediatrics">Pediatrics</option>
+        </select>
+
+        <br><br>
+        
+        <label for="subdepartment">Subdepartment:</label>
+        <select id="subdepartment">
+          <option value="">-- Select Subdepartment --</option>
+        </select>
+
+        <br><br>
+
+        <button onclick="fetchDoctorOnBoard()">Check</button>
+    </section>
+
+    <div class="doctorsOnDuty" id="doctorsOnDuty"></div>
+
+</body>
+</html>
+
+

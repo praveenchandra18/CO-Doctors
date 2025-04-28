@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <h1>Helllo</h1>
+  <pre id="output">Connecting...</pre>
+  <script>
+    const SUPABASE_URL = "https://adkqpjypjztsfpgmiff.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFka3FwanlwenRmc3BvZ2ZtaWZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU3NDk2NzEsImV4cCI6MjA2MTMyNTY3MX0.ae6j0GEgTlQoQpV9_9Q-bi-Ww_w4nd6scsZjb2S47sU";
+    var sb= supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    async function testConnection() {
+      try {
+        const { data, error } = await sb.from("users").select("*");
+        if (error) {
+          document.getElementById("output").textContent = "Error: " + JSON.stringify(error, null, 2);
+        } else {
+          document.getElementById("output").textContent = "Success:\n" + JSON.stringify(data, null, 2);
+        }
+      } catch (err) {
+        document.getElementById("output").textContent = "Exception: " + err.message;
+      }
+    }
+
+    testConnection();
+  </script>
+</body>
+</html>
